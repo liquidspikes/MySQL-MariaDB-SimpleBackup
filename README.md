@@ -1,7 +1,7 @@
 # MySQL-MariaDB-SimpleBackup
 
 This script offers a straightforward solution for backing up all MySQL/MariaDB databases running locally on your system.
-Tested on Ubuntu and Debian-based Linux Distros, it likely functions well on other distros too, provided mysqldump is installed.
+Tested on Ubuntu and Debian-based Linux Distros, it likely functions well on other distros too, provided mysqldump and gunzip is installed.
 
 It's designed for easy integration into a cron job or as a service.
 
