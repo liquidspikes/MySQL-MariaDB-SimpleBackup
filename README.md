@@ -5,7 +5,7 @@ Tested on Ubuntu and Debian-based Linux Distros, it likely functions well on oth
 
 It's designed for easy integration into a cron job or as a service.
 
-## Installation as a cron
+## Installation as a daily cron job
 ```bash
 sudo vi /etc/cron.daily/simpledb-backup
 sudo run-parts /etc/cron.daily
