@@ -2,20 +2,18 @@
 # MariaDB / MySQL Simple database backup script
 # Alex Zimmerman 2023-10-09
 
-# Backup Locations
+# Variables:
 
+# Backup Locations
 # Temporary location to backup on disk
 Backup_Temp=/tmp/mariadb-backups-tmp
 # Final backup location, could be a network mount or other non local location.
 Backup_Destination=/mariadb-backups
-
 # Number of days to keep archives
 KEEP_DAYS=30
-
 # Maximum number of backups to keep per database
 MAX_BACKUPS=30
-
-# Script variables
+# Date Variables
 Backup_Date=`date +%F`
 Backup_Datetime=`date +%F-%H%M`
 
@@ -41,8 +39,8 @@ for db in $(mysql -e "show databases;" -s --skip-column-names | grep -Ev 'inform
         echo "Error: Failed to backup database ${db}"
         exit 1
     fi
-    # Move file to the final backup destination, 
-    # I did this just incase the final destination a network share, if the move fails at least you have one copy on disk still.
+    # Move the backup file to the final backup destination, 
+    # I did this just incase the final destination a network share, if the move fails at least you have one copy on disk still in your tmp.
     mkdir -p ${Backup_Destination}/${db}
     mv ${Backup_File} ${Backup_Destination}/${db}/${Backup_FileName}
 
