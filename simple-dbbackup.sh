@@ -42,7 +42,7 @@ for db in $(mysql -e "show databases;" -s --skip-column-names | grep -Ev 'inform
         exit 1
     fi
     # Move file to the final backup destination, 
-    # I did this just incase its a network share, if the move fails at least you have one copy on disk still.
+    # I did this just incase the final destination a network share, if the move fails at least you have one copy on disk still.
     mkdir -p ${Backup_Destination}/${db}
     mv ${Backup_File} ${Backup_Destination}/${db}/${Backup_FileName}
 
